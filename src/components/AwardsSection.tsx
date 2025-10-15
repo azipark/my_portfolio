@@ -34,7 +34,7 @@ export default function AwardsSection() {
                     <div className="flex-1">
                       <h3 className="font-semibold text-lg mb-2">{award.name}</h3>
                       <p className="text-sm text-muted-foreground mb-3">
-                        🏢 {award.issuer}
+                        {award.issuer}
                       </p>
                       <p className="text-sm text-foreground/80 leading-relaxed">
                         {award.type}

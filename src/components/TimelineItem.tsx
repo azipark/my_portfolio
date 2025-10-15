@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 
 interface TimelineItemProps {
-  title: string;
+  title?: string;
   subtitle: string;
   date: string;
   isLast?: boolean;
@@ -30,7 +30,7 @@ export default function TimelineItem({
       <div className="flex flex-col items-center">
         <motion.div
           className="flex h-[18px] w-[18px] rounded-full border border-purple-500/50 bg-background dark:bg-muted z-10"
-          initial={{ scale: 0 }}
+          initial={{ scale: 1 }}
           whileInView={{ scale: 1 }}
           transition={{
             type: "spring",
@@ -58,7 +58,7 @@ export default function TimelineItem({
           transition={{ duration: 0.5, delay: index * 0.2 + 0.1 }}
           viewport={{ once: true, margin: "-50px" }}
         >
-          <h3 className="font-medium">{title}</h3>
+          {title && <h3 className="font-medium">{title}</h3>}
           <p className="text-sm text-muted-foreground">{subtitle}</p>
           <p className="text-xs text-muted-foreground/70 mb-2">{date}</p>
         </motion.div>
