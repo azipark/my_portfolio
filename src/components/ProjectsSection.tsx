@@ -25,7 +25,9 @@ export default function ProjectsSection() {
 
   const openModal = (index: number) => {
     setSelectedProject(index);
-    setCurrentMediaIndex(0);
+    // 미디어가 2개 이상이면 두 번째부터 시작, 아니면 첫 번째부터
+    const startIndex = projects[index].media.items.length > 1 ? 1 : 0;
+    setCurrentMediaIndex(startIndex);
   };
 
   const closeModal = () => {
@@ -51,36 +53,21 @@ export default function ProjectsSection() {
               >
                 {/* 프로젝트 이미지/비디오 미리보기 */}
                 <div className="relative overflow-hidden bg-gradient-to-br from-purple-500/10 to-pink-500/10 h-48 flex items-center justify-center">
-                  {project.media.type === "video" ? (
+                  {project.media.type === "video" && (
                     <div className="flex flex-col items-center">
-                      <div className="text-4xl opacity-50 mb-2">🎥</div>
-                      <Play className="h-8 w-8 opacity-70" />
+                      <Play className="h-12 w-12 opacity-70" />
                     </div>
-                  ) : (
-                    <div className="text-6xl opacity-50">🖥️</div>
                   )}
                   
-                  {/* 실제 이미지 미리보기 (나중에 활성화) */}
-                  {/* {project.media.type === "images" && project.media.items[0] && (
+                  {/* 실제 이미지 미리보기 */}
+                  {(project.media.type === "images" || project.media.type === "mixed") && project.media.items[0] && project.media.items[0].match(/\.(jpg|jpeg|png|webp)$/i) && (
                     <img 
                       src={project.media.items[0]} 
                       alt={project.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain"
                     />
-                  )} */}
+                  )}
                   
-                  <div className="absolute top-4 right-4">
-                    <div className="flex gap-2">
-                      {project.technologies.slice(0, 2).map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-2 py-1 text-xs bg-white/20 backdrop-blur-sm rounded-full"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
                   <div className="absolute bottom-4 left-4">
                     <span className="px-2 py-1 text-xs bg-purple-500/80 text-white rounded-full">
                       Click to view details
@@ -169,28 +156,43 @@ export default function ProjectsSection() {
                 {/* 미디어 갤러리 */}
                 <div className="relative bg-muted/30">
                   {project.media.type === "video" ? (
-                    <div className="w-full h-64 md:h-96 flex items-center justify-center bg-black">
+                    <div className="w-full h-80 md:h-[32rem] flex items-center justify-center bg-black">
                       <video
                         controls
+                        autoPlay
+                        loop
+                        muted
                         className="max-w-full max-h-full object-contain"
                         src={project.media.items[currentMediaIndex]}
                       />
                     </div>
                   ) : (
-                    <div className="w-full h-64 md:h-96 flex items-center justify-center bg-gradient-to-br from-purple-500/10 to-pink-500/10">
-                      {/* 실제 이미지가 있을 때는 이렇게 표시 */}
-                      {/* <img 
-                        src={project.media.items[currentMediaIndex]} 
-                        alt={project.title}
-                        className="max-w-full max-h-full object-contain"
-                      /> */}
-                      {/* 임시 아이콘 */}
-                      <div className="text-8xl opacity-50">🖥️</div>
+                    <div className="w-full h-80 md:h-[32rem] flex items-center justify-center bg-gradient-to-br from-purple-500/10 to-pink-500/10">
+                      {/* 실제 이미지 표시 */}
+                      {project.media.items[currentMediaIndex] && project.media.items[currentMediaIndex].match(/\.(jpg|jpeg|png|webp)$/i) ? (
+                        <img 
+                          src={project.media.items[currentMediaIndex]} 
+                          alt={project.title}
+                          className="max-w-full max-h-full object-contain"
+                        />
+                      ) : project.media.items[currentMediaIndex] && project.media.items[currentMediaIndex].match(/\.(mp4|webm|ogg)$/i) ? (
+                        <video
+                          controls
+                          autoPlay
+                          loop
+                          muted
+                          className="max-w-full max-h-full object-contain"
+                          src={project.media.items[currentMediaIndex]}
+                        />
+                      ) : (
+                        /* 임시 아이콘 */
+                        <div className="text-8xl opacity-50">🖥️</div>
+                      )}
                     </div>
                   )}
                   
                   {/* 미디어 네비게이션 */}
-                  {project.media.items.length > 1 && (
+                  {project.media.items.length > 2 && (
                     <>
                       <button
                         onClick={prevMedia}
@@ -230,10 +232,6 @@ export default function ProjectsSection() {
                     <div>
                       <h4 className="text-sm font-medium text-muted-foreground mb-1">Duration</h4>
                       <p className="text-sm">{project.duration}</p>
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-medium text-muted-foreground mb-1">Role</h4>
-                      <p className="text-sm">{project.role}</p>
                     </div>
                   </div>
 

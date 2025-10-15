@@ -1,3 +1,19 @@
+export interface Project {
+  title: string;
+  year: string;
+  description: string;
+  technologies: string[];
+  keyImplementations: string[];
+  detailedDescription: string;
+  duration: string;
+  role: string;
+  liveUrl?: string; // optional로 만들기
+  media: {
+    type: "images" | "video" | "mixed";
+    items: string[];
+  };
+}
+
 export const personalInfo = {
   name: "abcd",
   location: "Seoul, Republic of KOREA",
@@ -138,50 +154,48 @@ export const skills = {
   ],
 };
 
-export const projects = [
+export const projects: Project[] = [
   {
-    title: "Portfolio Website",
-    year: "2024",
-    description: "Personal portfolio website built with Astro and React",
-    technologies: ["Astro", "React", "TypeScript", "Tailwind CSS"],
+    title: "OK비교대출 - 한도조회 결과 페이지",
+    year: "2025",
+    description: "한도조회 결과 페이지 – Vue Transition-group 기반 슬라이드 전환 구현",
+    technologies: ["VueJS", "SCSS/SASS"],
     keyImplementations: [
-      "Responsive design optimized for all devices",
-      "Dark/Light theme toggle support",
-      "Smooth animations and interactions",
-      "SEO optimization and performance tuning",
+      "transition-group 기반 Move Transition 구현",
+      "리스트 갱신 시 오른쪽→왼쪽 슬라이드 전환 효과",
+      "translateX(±100%) 기반 상대 단위로 모바일웹 뷰포트 대응",
+      "자연스러운 데이터 전환 및 시각적 피드백 제공"
     ],
-    detailedDescription: "A modern, responsive portfolio website showcasing my development skills and projects. Built with cutting-edge technologies including Astro for optimal performance and React for interactive components.",
-    duration: "2 weeks",
-    role: "Full-stack Developer",
-    liveUrl: "https://azipark.github.io/my_portfolio",
+    detailedDescription: "Vue의 <transition-group>을 활용해 한도조회 결과 리스트가 오른쪽에서 왼쪽으로 자연스럽게 슬라이드 교체되는 Move Transition을 구현했습니다. 조회 결과에 따라 각 금융사의 금리가 갱신될 때 데이터 변화가 한눈에 인지되도록 시각적 피드백을 강화했으며, transform: translateX(±100%) 기반의 상대 단위를 사용해 모바일웹 환경에서도 기기 해상도나 뷰포트 크기에 관계없이 일관된 전환 효과가 유지되도록 설계했습니다. 이를 통해 한도조회 과정에서 사용자 경험의 흐름이 끊기지 않도록 하고, 금리 비교 결과를 직관적으로 확인할 수 있는 인터랙션 완성도를 높였습니다.",
+    duration: "1 weeks",
+    role: "Web Publisher",
     media: {
-      type: "images", // "images" | "video" | "mixed"
+      type: "mixed", // "images" | "video" | "mixed"
       items: [
-        "/project-portfolio-1.jpg",
-        "/project-portfolio-2.jpg", 
-        "/project-portfolio-3.jpg"
+        "/images/projects/project-portfolio-1.png",
+        "/images/projects/project-portfolio-2.mp4",
       ]
     }
   },
   {
-    title: "Todo Management App",
+    title: "원유니버스 게임 관리자 페이지",
     year: "2023",
-    description: "Task management application built with React and Node.js",
-    technologies: ["React", "Node.js", "MongoDB", "Express"],
+    description: "웹 기반 게임 관리자(Admin) 페이지 구축 – 퍼블리싱·UI 흐름 전담 및 대량 데이터 대응 설계",
+    technologies: ["HTML", "CSS", "JavaScript", "jQuery", "Bootstrap"],
     keyImplementations: [
-      "Real-time task CRUD operations",
-      "Category-based task organization", 
-      "Progress tracking and statistics",
-      "User authentication and data sync",
+      "관리자 시스템 UI/UX 설계 및 퍼블리싱 전담",
+      "대량 데이터에 대응한 테이블 구조 안정화",
+      "기획자 및 개발자와의 협업을 통한 초기 구조 설계 및 기술 스택 선정"
     ],
-    detailedDescription: "A comprehensive task management application featuring real-time updates, user authentication, and advanced filtering capabilities. Designed with a focus on user experience and productivity.",
-    duration: "3 weeks",
+    detailedDescription: "웹 기반 게임 관리자(Admin) 페이지 구축 프로젝트에 프리랜서로 단독 참여하여 전체 화면의 퍼블리싱과 UI 흐름 구현을 전담하였습니다. 기획자와 직접 커뮤니케이션하며 요구사항을 정리하고, 프론트엔드 전담 인력으로서 개발자와 함께 기술 스택(프레임워크·툴 등)을 논의하고 선정하는 등 초기 구조 설계부터 마무리까지 주도적으로 참여했습니다. 대량의 데이터가 누적되며 테이블 영역이 깨지는 이슈를 발견하고, CSS 구조 재정비와 동적 width 계산 로직을 통해 안정적인 UI를 유지했습니다. 요구사항 변경에 유연하게 대응하며 관리자용 인터페이스에 적합한 직관적인 UI/UX 구조 설계와 퍼블리싱 품질 확보에 집중하였습니다.",
+    duration: "5 months",
     role: "Frontend Developer",
-    liveUrl: "https://todo-app-demo.vercel.app",
     media: {
-      type: "video", // 비디오 예시
+      type: "images", // 비디오 예시
       items: [
-        "/project-todo-demo.mp4"
+        "/images/projects/project-portfolio-3.png",
+        "/images/projects/project-portfolio-4.png",
+        "/images/projects/project-portfolio-5.png",
       ]
     }
   },
