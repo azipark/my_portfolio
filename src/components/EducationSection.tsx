@@ -1,3 +1,4 @@
+import * as React from "react";
 import { education } from "@/lib/data";
 import TimelineItem from "./TimelineItem";
 import { Award } from "lucide-react";

@@ -1,3 +1,4 @@
+import * as React from "react";
 import ThemeToggle from "./ui/theme-toggle";
 import { personalInfo } from "@/lib/data";
 import { useState } from "react";

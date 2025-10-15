@@ -1,3 +1,4 @@
+import * as React from "react";
 import { workExperience } from "@/lib/data";
 import TimelineItem from "./TimelineItem";
 import { Briefcase } from "lucide-react";
