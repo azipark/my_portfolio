@@ -28,7 +28,7 @@ export default function EducationSection() {
               index={index}
             >
               <p className="text-sm text-muted-foreground mb-3">
-                📍 {edu.location}
+                {edu.location}
               </p>
             </TimelineItem>
           ))}
