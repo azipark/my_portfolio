@@ -15,7 +15,7 @@ export interface Project {
 }
 
 export const personalInfo = {
-  name: "abcd",
+  name: "HY Kelly",
   location: "Seoul, Republic of KOREA",
   email: "azipark7721@gmail.com",
   github: "https://github.com/azipark",
