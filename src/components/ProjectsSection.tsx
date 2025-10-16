@@ -8,6 +8,22 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function ProjectsSection() {
   const [selectedProject, setSelectedProject] = React.useState<number | null>(null);
   const [currentMediaIndex, setCurrentMediaIndex] = React.useState(0);
+  const [viewportHeight, setViewportHeight] = React.useState(0);
+
+  React.useEffect(() => {
+    const updateViewportHeight = () => {
+      setViewportHeight(window.innerHeight);
+    };
+    
+    updateViewportHeight();
+    window.addEventListener('resize', updateViewportHeight);
+    window.addEventListener('orientationchange', updateViewportHeight);
+    
+    return () => {
+      window.removeEventListener('resize', updateViewportHeight);
+      window.removeEventListener('orientationchange', updateViewportHeight);
+    };
+  }, []);
 
   const project = selectedProject !== null ? projects[selectedProject] : null;
 
@@ -133,14 +149,21 @@ export default function ProjectsSection() {
         <AnimatePresence>
           {selectedProject !== null && project && (
             <motion.div
-              className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 h-[100dvh] w-[100dvw]"
+              className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+              style={{ 
+                height: viewportHeight > 0 ? `${viewportHeight}px` : '100vh',
+                minHeight: '-webkit-fill-available'
+              }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={closeModal}
             >
               <motion.div
-                className="bg-background border border-border rounded-xl max-w-4xl w-full max-h-[80dvh] overflow-y-auto"
+                className="bg-background border border-border rounded-xl max-w-4xl w-full overflow-y-auto"
+                style={{
+                  maxHeight: viewportHeight > 0 ? `${viewportHeight * 0.8}px` : '80vh'
+                }}
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.9, opacity: 0 }}
