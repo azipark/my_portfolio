@@ -28,11 +28,15 @@ export default function ProjectsSection() {
     // 미디어가 2개 이상이면 두 번째부터 시작, 아니면 첫 번째부터
     const startIndex = projects[index].media.items.length > 1 ? 1 : 0;
     setCurrentMediaIndex(startIndex);
+    // 배경 스크롤 방지
+    document.body.style.overflow = 'hidden';
   };
 
   const closeModal = () => {
     setSelectedProject(null);
     setCurrentMediaIndex(0);
+    // 배경 스크롤 복원
+    document.body.style.overflow = 'unset';
   };
 
   return (
