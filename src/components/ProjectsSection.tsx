@@ -140,7 +140,7 @@ export default function ProjectsSection() {
               onClick={closeModal}
             >
               <motion.div
-                className="bg-background border border-border rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+                className="bg-background border border-border rounded-xl max-w-4xl w-full max-h-[80vh] overflow-y-auto"
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.9, opacity: 0 }}
@@ -166,6 +166,7 @@ export default function ProjectsSection() {
                         autoPlay
                         loop
                         muted
+                        playsInline
                         className="max-w-full max-h-full object-contain"
                         src={project.media.items[currentMediaIndex]}
                       />
@@ -185,6 +186,7 @@ export default function ProjectsSection() {
                           autoPlay
                           loop
                           muted
+                          playsInline
                           className="max-w-full max-h-full object-contain"
                           src={project.media.items[currentMediaIndex]}
                         />
