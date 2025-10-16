@@ -180,11 +180,12 @@ export const projects: Project[] = [
   {
     title: "원유니버스 게임 관리자 페이지",
     year: "2023",
-    description: "웹 기반 게임 관리자(Admin) 페이지 구축 – 퍼블리싱·UI 흐름 전담 및 대량 데이터 대응 설계",
+    description: "웹 기반 게임 관리자(Admin) 페이지 구축 – 퍼블리싱·UI 흐름 전담 및 Chart.js 기반 데이터 시각화 구현(VIP·CCU·DAU 지표 분석)",
     technologies: ["HTML", "CSS", "JavaScript", "jQuery", "Bootstrap"],
     keyImplementations: [
       "관리자 시스템 UI/UX 설계 및 퍼블리싱 전담",
-      "대량 데이터에 대응한 테이블 구조 안정화",
+      "대량 데이터 대응 설계",
+      "Chart.js로 지표 시각화 (VIP / CCU / DAU 등 분석)",
       "기획자 및 개발자와의 협업을 통한 초기 구조 설계 및 기술 스택 선정"
     ],
     detailedDescription: "웹 기반 게임 관리자(Admin) 페이지 구축 프로젝트에 프리랜서로 단독 참여하여 전체 화면의 퍼블리싱과 UI 흐름 구현을 전담하였습니다. 기획자와 직접 커뮤니케이션하며 요구사항을 정리하고, 프론트엔드 전담 인력으로서 개발자와 함께 기술 스택(프레임워크·툴 등)을 논의하고 선정하는 등 초기 구조 설계부터 마무리까지 주도적으로 참여했습니다. 대량의 데이터가 누적되며 테이블 영역이 깨지는 이슈를 발견하고, CSS 구조 재정비와 동적 width 계산 로직을 통해 안정적인 UI를 유지했습니다. 요구사항 변경에 유연하게 대응하며 관리자용 인터페이스에 적합한 직관적인 UI/UX 구조 설계와 퍼블리싱 품질 확보에 집중하였습니다.",
@@ -196,6 +197,27 @@ export const projects: Project[] = [
         "/images/projects/project-portfolio-3.png",
         "/images/projects/project-portfolio-4.png",
         "/images/projects/project-portfolio-5.png",
+      ]
+    }
+  },
+  {
+    title: "SealM 동남아 홈페이지(PC/MO)",
+    year: "2022-2023",
+    description: "SealM 동남아 런칭 – 프론트엔드 단독 퍼블리싱 및 다국어·성능 최적화 구현",
+    technologies: ["HTML", "CSS", "JavaScript", "jQuery"],
+    keyImplementations: [
+      "다국어(Localization) 지원: 영어, 중국어, 인도네시아어, 대만어",
+      "퍼포먼스 최적화: lazy-loading, WebP 이미지 포맷 적용",
+      "프론트엔드 단독 담당으로 일정 및 품질 관리 주도",
+    ],
+    detailedDescription: "동남아시아 시장을 타겟으로 한 게임 서비스의 PC 및 모바일 홈페이지를 프론트엔드 전담으로 구축하였으며, 영어·중국어·인도네시아어·대만어 등 다국어 현지화와 lazy-loading, WebP 이미지 포맷을 적용해 글로벌 사용자에게 최적화된 UX와 로딩 성능을 제공했습니다.",
+    duration: "1 year",
+    role: "Frontend Developer",
+    liveUrl: "https://sea.sealm.com/en",
+    media: {
+      type: "images", // 비디오 예시
+      items: [
+        "/images/projects/project-portfolio-6.png",
       ]
     }
   },
