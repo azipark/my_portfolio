@@ -27,7 +27,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="py-16 md:py-24 relative overflow-hidden">
+    <section className="py-12 relative overflow-hidden">
       <div className="container max-w-5xl mx-auto px-6 md:px-4 relative z-10">
         <motion.div
           className="flex flex-col md:flex-row md:items-center justify-between mb-8"
@@ -91,13 +91,13 @@ export default function HeroSection() {
 
         <MotionWrapper>
           <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 backdrop-blur-sm backdrop-filter p-4 rounded-lg border border-purple-500/20 dark:border-purple-500/10 shadow-sm max-w-6xl mx-auto">
-            <div className="text-muted-foreground text-md pl-4 py-2 relative leading-relaxed">
+            <div className="text-muted-foreground text-sm pl-4 py-2 relative leading-relaxed">
               <span className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-purple-500 to-pink-500 rounded-full"></span>
-              <div className="mb-2 before:content-['·_'] before:mr-1"><b>금융과 게임 등 다양한 산업</b>에서 사용자 경험을 고려한 UI 개발을 진행해왔습니다.</div>
-              <div className="mb-2 before:content-['·_'] before:mr-1">Cursor, Claude Code 등 <b>AI 디자인-투-코드 툴을 실험하며 퍼블리싱 자동화</b>의 새로운 가능성을 탐구하고 있습니다.</div>
-              <div className="mb-2 before:content-['·_'] before:mr-1">React, Vue, WebSquare 등 <b>여러 프레임워크 환경</b>에서 프로젝트를 완수한 경험이 있습니다.</div>
-              <div className="mb-2 before:content-['·_'] before:mr-1"><b>Figma, Zeplin, Sketch, Adobe XD, Git, SVN, ChangeFlow, Jira</b> 등 협업 툴을 적극 활용해 다양한 직군과 함께 일해왔습니다.</div>
-              <div className="mb-2 before:content-['·_'] before:mr-1"><b>소통과 신뢰를 기반으로 팀의 목표를 함께 이루는 협업</b>을 중요하게 생각합니다.</div>
+              <div className="mb-2 before:content-['·_'] before:mr-1">금융과 게임 등 다양한 산업에서 사용자 경험을 고려한 UI 개발을 진행해왔습니다.</div>
+              <div className="mb-2 before:content-['·_'] before:mr-1">Cursor, Claude Code 등 AI 디자인-투-코드 툴을 실험하며 퍼블리싱 자동화의 새로운 가능성을 탐구하고 있습니다.</div>
+              <div className="mb-2 before:content-['·_'] before:mr-1">React, Vue, WebSquare 등 여러 프레임워크 환경에서 프로젝트를 완수한 경험이 있습니다.</div>
+              <div className="mb-2 before:content-['·_'] before:mr-1">Figma, Zeplin, Sketch, Adobe XD, Git, SVN, ChangeFlow, Jira 등 협업 툴을 적극 활용해 다양한 직군과 함께 일해왔습니다.</div>
+              <div className="mb-2 before:content-['·_'] before:mr-1">소통과 신뢰를 기반으로 팀의 목표를 함께 이루는 협업을 중요하게 생각합니다.</div>
             </div>
           </div>
         </MotionWrapper>
