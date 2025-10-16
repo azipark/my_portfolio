@@ -133,14 +133,14 @@ export default function ProjectsSection() {
         <AnimatePresence>
           {selectedProject !== null && project && (
             <motion.div
-              className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+              className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 h-[100dvh] w-[100dvw]"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={closeModal}
             >
               <motion.div
-                className="bg-background border border-border rounded-xl max-w-4xl w-full max-h-[80vh] overflow-y-auto"
+                className="bg-background border border-border rounded-xl max-w-4xl w-full max-h-[80dvh] overflow-y-auto"
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.9, opacity: 0 }}
